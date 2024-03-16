@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+header {
+    background-color: #204d74;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+section {
+    margin: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin-bottom: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border-radius: 10px;
+    overflow: visible;
+}
+.gallery img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+.gallery img:hover {
+    border-color: #204d74;
+    box-shadow: 0px 0px 10px 0px rgba(32, 77, 116, 0.5);
+}
+section form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+section input[type="text"],
+section input[type="email"],
+section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+section button[type="submit"] {
+    background-color: #204d74;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+section button[type="submit"]:hover {
+    background-color: #fff;
+    color: #204d74;
+    border: 1px solid #204d74;
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Затемняем фон */
+    z-index: 1; /* Устанавливаем выше других элементов */
+    display: none; /* Начальное состояние - скрыто */
+}
+#caption {
+    text-align: center;
+    margin: 10px 0;
+    display: block;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2; /* Устанавливаем поверх оверлея */
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Добавляем исчезновение модального окна */
+}
+
+.modal.show {
+    display: block;
+    opacity: 1; /* Делаем модальное окно видимым */
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease;
+}
+
+.close {
+    color: #000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #888;
+}
+
+.image-container {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  flex: 0 0 calc(33.33% - 20px);
+  gap: 5px;
+}
+
+.image-container img {
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  border: 2px solid #ddd;
+  overflow: visible;
+  cursor: pointer;
+}
+.image-container img:hover {
+    transform: scale(1.05); /* Увеличиваем размер изображения при наведении */
+}
+.image-container .tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover .tooltip {
+    transform: translateY(0);
+}
+
+.back_button {
+    background-color: #204d74;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back_button:hover {
+    background-color: #fff;
+    color: #204d74;
+    border: 1px solid #204d74;
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        margin: 15px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    table {
+        font-size: 14px;
+    }
+    .image-container img {
+        width: 3em;
+        height: auto;
+    }
+}
